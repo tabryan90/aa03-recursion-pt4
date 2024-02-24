@@ -52,5 +52,24 @@ function sort(nums, sorted = []) {
 
 }
 
+/*
+Using Math.min()
+
+function sortMathMin(nums, sorted = []) {
+    if (nums.length === 0) return sorted
+
+    let currentMin = Math.min(...nums)
+    sorted.push(currentMin)
+    // console.log(sorted)
+
+    let indexOfMin = nums.indexOf(currentMin);
+    nums.splice(indexOfMin, 1)
+    // console.log(nums)
+
+    return sortMathMin(nums, sorted)
+}
+
+*/
+
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = sort;
