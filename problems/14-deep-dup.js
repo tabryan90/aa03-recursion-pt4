@@ -31,13 +31,34 @@ you will get 'true' because we are comparing numbers.
 let x = [1, 2, 3];
 let y = x.slice();
 console.log(x[0] === y[0]) // true
+
+flatten and deep dupe is the same - except the one thing that didn't make flatten actually flatten
+
 ***********************************************************************/
 
-
+debugger
 function deepDup(arr) {
-  // Your code here 
+  let result = [];
+
+  for ( let i = 0; i < arr.length; i++ ) {
+    if (Array.isArray(arr[i])) {
+      result.push(deepDup(arr[i]));
+    } else {
+      result.push(arr[i]);
+    }
+  }
+
+  return result;
 }
 
+let arr = [[1], [2, [3]]];
+duped = deepDup(arr); // [[1], [2, [3]]]
+
+console.log(duped);
+
+// arr[0] === duped[0] // false
+// arr[1] === duped[1] // false
+// arr[1][1] === duped[1][1] // false
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
